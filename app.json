@@ -1,0 +1,12 @@
+{
+  "name": "GSTDetails",
+  "displayName": "GSTDetails",
+  "expo": {
+    "name": "GSTDetails",
+    "slug": "GSTDetails",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
