@@ -1,0 +1,24 @@
+import React, { Component } from 'react'
+import { View, Text } from 'react-native'
+import Inputs from './Inputs.txt'
+
+export class Render extends Component {
+    state = {
+        netPrice: 0,
+        rateOfIntrest: 5,
+    }
+
+    inputValue = (text) => this.setState({ netPrice: inputVal})
+    updateUser = (updateUse) => this.setState({ rateOfIntrest: updateUse })
+
+
+
+    render() {
+        return (
+            <Inputs inputVal={this.inputValue} updateUse={this.updateUser} />
+
+        )
+    }rateOfIntrest
+}
+
+export default Render

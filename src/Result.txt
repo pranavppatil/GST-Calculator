@@ -1,0 +1,24 @@
+import React, { Component } from 'react'
+import {View,Text} from 'react-native'
+
+export class Result extends Component {
+    render() {
+        return (
+            <View>
+                {// After one output the output doesnt hide need to figure out....
+                    this.state.showRes && <View style={styles.container}>
+                    <Text style={styles.inputText}>Total netPrice inclusive of GST is : {this.state.totalGst}</Text>
+
+                    <Text style={styles.inputText}>Total GST value is: {this.state.gstVal}</Text>
+                    <Text style={styles.inputText}>SGST value is: {this.state.sgstVal}</Text>
+                    <Text style={styles.inputText}>CGST value is: {this.state.sgstVal}</Text>
+                </View>
+            }
+            </View>
+        )
+    }
+}
+
+export default result
+
+}

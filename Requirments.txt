@@ -1,0 +1,20 @@
+GST Calculator
+
+GST refers to goods and services tax imposed by india which consists of state(SGST) and central(CGST) together simply called as GST
+
+Various Levels of GSTs are
+    Household Necessities:2.5%(SGST),2.5%(CGST),total 5%(IGST)
+    Processed Foods and Computers:6%(SGST),6%(CGST),total 12%(IGST)
+    Capital Goods and Industry Level:9%(SGST),9%(CGST),total 18%(IGST)
+    Luxury Items: 14%(SGST),14%(CGST),total 28%(IGST)
+
+Input by the User:
+    1. Net Price
+    2. GST Percentage
+    
+Output:
+    Total Price
+    GST Credit
+    SGST credit
+    CGST credit
+

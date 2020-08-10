@@ -1,0 +1,100 @@
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image, Picker, TouchableHighlight, ToastAndroid } from 'react-native';
+import { TextInput } from 'react-native-gesture-handler';
+import {styles} from '../Styles/inputStyle';
+
+export default class Inputs extends Component {
+    state = {
+        showRes: false,
+        totalGst: 0,
+        gstVal: 0,
+        sgstVal: 0,
+    }
+
+
+    render() {
+
+        const submitval = () => {
+
+            if (!this.state.netPrice.includes(',')) {
+
+                this.setState({
+                    showRes: true,
+                    gstVal: parseInt(this.state.netPrice * this.state.rateOfIntrest / 100),
+                    sgstVal: parseInt(this.state.netPrice * this.state.rateOfIntrest / 200),
+                    totalGst: parseInt(this.state.netPrice) + parseInt(this.state.netPrice * this.state.rateOfIntrest / 100),
+
+                })
+            }
+            else {
+                this.state.netPrice = this.state.netPrice.replace(',', ''),
+                    this.setState({
+                        showRes: true,
+                        gstVal: parseInt(this.state.netPrice * this.state.rateOfIntrest / 100),
+                        sgstVal: parseInt(this.state.netPrice * this.state.rateOfIntrest / 200),
+                        totalGst: parseInt(this.state.netPrice) + parseInt(this.state.netPrice * this.state.rateOfIntrest / 100),
+                    })
+            }
+        }
+        const onPress = () => {
+
+        }
+        return (
+            <View style={styles.container}>
+                <View style={styles.subcontainer}>
+                    <View style={{ flex: 2 }}>
+                        <Text style={styles.inputTextIntrest}>Net Price:  </Text>
+                        <Text style={styles.inputTextIntrest}>{this.props.netPrice}</Text>
+                    </View>
+                    <View style={{ flex: 2 }}>
+                        <View style={styles.input}>
+                            <Image
+                                source={require('../Images/rupee.png')} style={styles.ImageStyle}
+                            />
+
+                            <TextInput
+                                style={{ flex: 1 }}
+                                onChangeText={this.props.inputValue}
+                                placeholder="Enter the Net Price"
+                                underlineColorAndroid='transparent'
+                                keyboardType={'numeric'}
+                            />
+        
+                        </View>
+
+
+                    </View>
+                </View>
+
+                <View style={styles.subcontainer}>
+                    <View style={{ flex: 2 }}>
+                        <Text style={styles.inputTextIntrest}>Rate of Intrest:  </Text>
+
+                    </View>
+                    <View style={{ flex: 2 }}>
+                        <View style={styles.inputpicker}>
+
+                            <Picker style={styles.pickerStyle} selectedValue={this.props.rateOfIntrest} onValueChange={this.props.updateUser}>
+                                <Picker.Item label="5%" value="5" />
+                                <Picker.Item label="12%" value="12" />
+                                <Picker.Item label="18%" value="18" />
+                                <Picker.Item label="28%" value="28" />
+                            </Picker>
+                        </View>
+                    </View>
+                </View>
+
+                <View style={styles.subcontainer}>
+                    <TouchableHighlight onPress={onPress}>
+                        <View style={styles.button}>
+                            <Text style={styles.text} onPress={() => submitval()}>Calculate </Text>
+                        </View>
+                    </TouchableHighlight>
+                </View>
+
+                
+            </View>
+        );
+
+    }
+}
